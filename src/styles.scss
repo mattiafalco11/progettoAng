@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+$main-color: #ff9966;
+
+body {
+    background-color: $main-color;
+}
+
+.txt-col {
+    color: $main-color;
+}
+
+.p-dialog-content {
+    overflow: hidden !important;
+}
+
+.title-form {
+    text-align: center;
+    margin: 0;
+}
+
+.card-size {
+    margin-top: 10%;
+}
+
+a:-webkit-any-link {
+    color: black;
+    text-decoration: none;
+}
+
+small {
+    color: red;
+}
+
+// query
+@media (max-width: 640px) {
+    .p-card {
+        background: none !important;
+        box-shadow: none !important;
+        color: black !important;
+        width: 100% !important;
+    }
+
+    .p-inputtext {
+        background: #d88256 !important;
+    }
+}

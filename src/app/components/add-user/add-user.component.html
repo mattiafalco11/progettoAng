@@ -1,0 +1,48 @@
+<form [formGroup]="userForm" name="myForm">
+    <div class="p-fluid grid">
+        <div class="col-12 md:col-6">
+            <span class="p-float-label mt-4">
+                <input class="w-full" id="float-input" type="text" id="firstName" name="firstName" formControlName="firstName" pInputText>
+                <label for="float-input">First name</label>
+            </span>
+            <small class="text-red-500" *ngIf="userForm!.get('firstName')!.invalid && (userForm!.get('firstName')!.dirty || userForm!.get('firstName')!.touched)">*Il nome è errato</small>
+        </div>
+        <div class="col-12 md:col-6">
+            <span class="p-float-label mt-4">
+                <input class="w-full" id="float-input" type="text" id="lastName" name="lastName" formControlName="lastName" pInputText>
+                <label for="float-input">Last name</label>
+            </span>
+            <small class="text-red-500" *ngIf="userForm!.get('lastName')!.invalid && (userForm!.get('lastName')!.dirty || userForm!.get('lastName')!.touched)">*Il nome è errato</small>
+        </div>
+        <div class="col-12 md:col-6">
+            <span class="p-float-label mt-4">
+                <input class="w-full" id="float-input" type="text" id="username" name="username" formControlName="username" pInputText>
+                <label for="float-input">Username</label>
+            </span>
+            <small class="text-red-500" *ngIf="userForm!.get('username')!.invalid && (userForm!.get('username')!.dirty || userForm!.get('username')!.touched)">*Il nome è errato</small>
+        </div>
+        <div class="col-12 md:col-6">
+            <span class="p-float-label mt-4">
+                <input class="w-full" id="float-input" type="number" id="age" name="age" formControlName="age" pInputText>
+                <label for="float-input">Age</label>
+            </span>
+            <small class="text-red-500" *ngIf="userForm!.get('age')!.invalid && (userForm!.get('age')!.dirty || userForm!.get('age')!.touched)">*L'età non è valida</small>
+        </div>
+        <div class="col-12 mt-2 md:col-6 mt-4">
+            <p-dropdown [options]="genders" placeholder="Gender" optionLabel="name" name="gender" id="gender" formControlName="gender"
+                optionValue="value"></p-dropdown>
+        </div>
+        <div class="col-12 md:col-6">
+            <span class="p-float-label mt-4">
+                <input class="w-full" id="float-input" type="text" id="password" name="password" formControlName="password" pInputText>
+                <label for="float-input">Password</label>
+            </span>
+            <small class="text-red-500" *ngIf="userForm!.get('password')!.invalid && (userForm!.get('password')!.dirty || userForm!.get('password')!.touched)">*Il nome è errato</small>
+        </div>
+    </div>
+    <div class="flex flex-row-reverse flex-wrap mt-4">
+        <button pButton type="button" label="Save" (click)="onSubmit()" icon="pi pi-check" iconPos="left"
+            class="p-button-success p-button-raised p-button-rounded" [disabled]="userForm.invalid"></button>
+    </div>
+    
+</form>

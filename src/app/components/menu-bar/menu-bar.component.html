@@ -1,0 +1,14 @@
+<p-sidebar [(visible)]="display" [baseZIndex]="10000" position="left">
+    <button pButton pRipple type="button" label="Gestione Utenti" class="p-button-secondary p-button-text w-full text-left mt-1" routerLink="/home/users"></button>
+</p-sidebar>
+<p-menubar>
+    <ng-template pTemplate="start">
+        <img src="/favicon.ico" height="30" class="mr-2">
+        <button pButton pRipple type="button" class="p-button-text p-button-secondary" (click)="display = true" icon="pi pi-bars"></button>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <button pButton pRipple type="button" icon="pi pi-user" (click)="menu.toggle($event)" 
+            class="p-button-rounded p-button-outlined p-button-secondary"></button>
+        <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </ng-template>
+</p-menubar>
