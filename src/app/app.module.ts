@@ -13,6 +13,11 @@ import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import {InputNumberModule} from 'primeng/inputnumber';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -64,9 +69,15 @@ import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughn
     ReactiveFormsModule,
     DropdownModule,
     InputTextModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ConfirmDialogModule,
+    ToastModule,
+    InputNumberModule
   ],
-  providers: [],
+  providers: [
+    ConfirmationService,
+    MessageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,9 @@
 <app-menu-bar></app-menu-bar>
 <app-breadcrumb></app-breadcrumb>
+<p-toast></p-toast>
 <div class="m-4">
     <p-card header="Users">
-        <p-table [value]="users" [globalFilterFields]="['firstName', 'lastName']" [tableStyle]="{'min-width': '50rem'}"
+        <p-table [value]="users" [globalFilterFields]="['firstName', 'lastName', 'username']" [tableStyle]="{'min-width': '50rem'}"
             [paginator]="true" [rowHover]="true" [rows]="10" #userTable>
             <ng-template pTemplate="caption">
                 <div class="flex">
@@ -29,11 +30,15 @@
                     <td>{{user.firstName}} {{user.lastName}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.age}}</td>
-                    <td>{{user.gender}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil"
+                        <div *ngIf="user.gender == 'male'" class="male ml-3"></div>
+                        <div *ngIf="user.gender == 'female'" class="female ml-3"></div>
+                        <!-- {{user.gender}} -->
+                    </td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" (click)="editUser(user)"
                             class="p-button-rounded p-button-warning mr-2"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                        <button pButton pRipple (click)="confirm(user.id)" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
                     </td>
                 </tr>
             </ng-template>
@@ -52,3 +57,42 @@
         </p-dialog>
     </p-card>
 </div>
+<p-dialog [(visible)]="editDialog" [style]="{width: '450px'}" header="User Details" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="field">
+            <label for="firstName">First Name</label>
+            <input type="text" pInputText id="firstName" [(ngModel)]="user.firstName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !user.firstName">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="lastName">Last Name</label>
+            <input type="text" pInputText id="lastName" [(ngModel)]="user.lastName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !user.lastName">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="age">Age</label>
+            <p-inputNumber id="age" [(ngModel)]="user.age"></p-inputNumber>
+        </div>
+        <div class="field">
+            <p-dropdown [options]="genders" [(ngModel)]="user.gender" optionLabel="name" name="gender" id="gender" formControlName="gender"
+                optionValue="value"></p-dropdown>
+            <small class="p-error" *ngIf="submitted && !user.gender">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="username">Username</label>
+            <input type="text" pInputText id="username" [(ngModel)]="user.username" required autofocus />
+            <small class="p-error" *ngIf="submitted && !user.username">Name is required.</small>
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input type="password" pInputText id="password" [(ngModel)]="user.password" required autofocus />
+            <small class="p-error" *ngIf="submitted && !user.password">Name is required.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialogEdit()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+    </ng-template>
+</p-dialog>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

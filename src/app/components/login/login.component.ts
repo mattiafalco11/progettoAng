@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)])
   })
   submitForm() {
-
+    
   }
   get username() {
     return this.loginForm.get('username')
@@ -45,5 +45,8 @@ export class LoginComponent implements OnInit {
         next: res => this.users = res.users
       }
     )
+  }
+  submit(){
+    //this.users.find((user) => user.username == this.loginForm.get('username'))
   }
 }
