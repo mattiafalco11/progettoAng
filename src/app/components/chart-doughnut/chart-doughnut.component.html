@@ -1,0 +1,6 @@
+<p-card class="w-4" header="Price per brand">
+    <div class="flex flex-wrap justify-content-center">  
+        <p-progressSpinner [hidden]="showSpinner"></p-progressSpinner>
+        <p-chart type="doughnut" [hidden]="!showSpinner" [data]="data" [options]="chartOptions" [style]="{'width': '60%'}"></p-chart>
+    </div>
+</p-card>

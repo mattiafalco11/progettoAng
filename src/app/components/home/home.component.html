@@ -2,15 +2,9 @@
 <app-breadcrumb></app-breadcrumb>
 <div class="grid flex flex-wrap justify-content-center card-brand">
     <div class="graph col-12 md:col-6 p-6">
-        <p-card class="w-4" header="Product per brand">
-            <p-chart type="bar" [data]="basicData"></p-chart>
-        </p-card>
+        <app-chart-bar></app-chart-bar>
     </div>
     <div class="graph col-12 md:col-6 p-6">
-        <p-card class="w-4" header="Price per brand">
-            <div class="w-6">  
-                <p-chart type="doughnut" [data]="data" [options]="chartOptions" [style]="{'width': '40%'}"></p-chart>
-            </div>
-        </p-card>
+        <app-chart-doughnut></app-chart-doughnut>
     </div>
 </div>

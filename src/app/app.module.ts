@@ -12,6 +12,7 @@ import {DialogModule} from 'primeng/dialog';
 import {TableModule} from 'primeng/table';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextModule} from 'primeng/inputtext';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +26,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
+import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughnut.component';
 
 
 
@@ -38,7 +41,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserComponent,
     AddUserComponent,
     MenuBarComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ChartBarComponent,
+    ChartDoughnutComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     DropdownModule,
-    InputTextModule
+    InputTextModule,
+    ProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

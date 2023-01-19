@@ -38,7 +38,7 @@ export class AddUserComponent {
   onSubmit(){
     let user = {
       id: this.users.length + 1,
-      firstName: this.userForm.get('name')?.value,
+      firstName: this.userForm.get('firstName')?.value,
       lastName: this.userForm.get('lastName')?.value,
       age: this.userForm.get('age')?.value,
       gender: this.userForm.get('gender')?.value,

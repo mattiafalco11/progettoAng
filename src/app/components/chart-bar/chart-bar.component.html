@@ -1,0 +1,6 @@
+<p-card class="w-4" header="Product per brand">
+    <div class="flex flex-wrap justify-content-center">
+        <p-progressSpinner [hidden]="showSpinner"></p-progressSpinner>
+    </div>
+    <p-chart type="bar" [hidden]="!showSpinner" [data]="basicData"></p-chart>
+</p-card>
