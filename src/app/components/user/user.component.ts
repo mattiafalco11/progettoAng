@@ -40,6 +40,7 @@ export class UserComponent implements OnInit {
   }
   hideDialog(user: User) {
     this.users.push(user);
+    this.messageService.add({severity:'success', summary: 'Successful', detail: 'User Succesfull Added', life: 3000});
     this.display = false;
     this.userTable.reset();
   }
@@ -59,9 +60,9 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(userId).subscribe(() =>{
       next: () => {
         this.getAllUsers();
-        this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+        this.messageService.add({severity:'success', summary: 'Successful', detail: 'User Deleted', life: 3000});
       }
-      error: this.messageService.add({severity:'error', summary: 'Error', detail: 'Product not Deleted', life: 3000});
+      error: this.messageService.add({severity:'error', summary: 'Error', detail: 'User not Deleted', life: 3000});
       }
     );
   }
@@ -79,7 +80,7 @@ export class UserComponent implements OnInit {
     this.submitted = true;
     
     this.users[this.findIndexById(this.user.id)] = this.user;
-    this.messageService.add({severity:'success', summary: 'Successful', detail: 'user Updated', life: 3000});
+    this.messageService.add({severity:'success', summary: 'Successful', detail: 'User Updated', life: 3000});
   
     this.users = [...this.users];
     this.editDialog = false;

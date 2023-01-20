@@ -1,0 +1,69 @@
+<app-menu-bar></app-menu-bar>
+<app-breadcrumb></app-breadcrumb>
+<div class="m-8">
+    <p-card header="Profile">
+        <div class="profile-icon mb-4 flex flex-wrap justify-content-center align-items-center">
+            <i class="pi pi-user text-4xl"></i>
+        </div>
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user mr-2"></i>
+                <b>Name</b>
+            </div>
+        </p-divider>
+        <div *ngIf="editUser">
+            <input type="text" pInputText id="firstName" [(ngModel)]="currUser.firstName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !currUser.firstName">Name is required.</small>
+            <input type="text" pInputText id="lastName" [(ngModel)]="currUser.lastName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !currUser.lastName">Surname is required.</small>
+        </div>
+        <div *ngIf="!editUser" class="ml-3 mb-2">
+            {{currUser.firstName}} {{currUser.lastName}}
+        </div>
+
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <b>Username</b>
+            </div>
+        </p-divider>
+        <div *ngIf="editUser">
+            <input type="text" pInputText id="username" [(ngModel)]="currUser.username" required autofocus />
+            <small class="p-error" *ngIf="submitted && !currUser.firstName">Username is required.</small>
+        </div>
+        <div *ngIf="!editUser" class="ml-3  mb-2">
+            {{currUser.username}}
+        </div>
+
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <b>Age</b>
+            </div>
+        </p-divider>
+        <div *ngIf="editUser">
+            <p-inputNumber id="age" [(ngModel)]="currUser.age"></p-inputNumber>
+        </div>
+        <div *ngIf="!editUser" class="ml-3 mb-2">
+            {{currUser.age}}
+        </div>
+
+        <p-divider align="left">
+            <div class="inline-flex align-items-center">
+                <b>Gender</b>
+            </div>
+        </p-divider>
+        <div *ngIf="editUser">
+            <p-dropdown [options]="genders" [(ngModel)]="currUser.gender" optionLabel="name" name="gender" id="gender"
+                optionValue="value"></p-dropdown>
+            <small class="p-error" *ngIf="submitted && !currUser.gender">Gender is required.</small>
+        </div>
+        <div *ngIf="!editUser" class="ml-3 mb-2">
+            {{currUser.gender}}
+        </div>
+        <div *ngIf="!editUser" class="text-right mr-3">
+            <button pButton pRipple (click)="editUser = true" type="button" label="Edit Profile" icon="pi pi-pencil" class="p-button-warning"></button>
+        </div>
+        <div *ngIf="editUser" class="text-right mr-3">
+            <button pButton pRipple (click)="saveUser()" type="button" label="Save Profile" icon="pi pi-check" class="p-button-secondary"></button>
+        </div>
+    </p-card>
+</div>

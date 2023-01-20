@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { _isClickEvent } from 'chart.js/dist/helpers/helpers.core';
 import { MenuItem } from 'primeng/api';
 
 
@@ -11,14 +12,17 @@ export class MenuBarComponent implements OnInit{
   items!: MenuItem[];
   display!: boolean;
 
+  constructor(){}
+
   ngOnInit() {
     this.items = [
       {
-        label: 'Profile' 
+        label: 'Profile',
+        routerLink: '/profile'
       },
       {
         label: 'Log Out',
-        routerLink: '/login'
+        routerLink: '/login',
       }
     ];
   }

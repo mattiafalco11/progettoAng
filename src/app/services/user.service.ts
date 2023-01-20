@@ -8,6 +8,7 @@ import { GetUsersResponse } from '../model/user';
 })
 export class UserService {
   url!: string;
+
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<GetUsersResponse>{

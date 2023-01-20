@@ -17,8 +17,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import {InputNumberModule} from 'primeng/inputnumber';
-
-
+import {DividerModule} from 'primeng/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
 import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughnut.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -48,7 +48,8 @@ import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughn
     MenuBarComponent,
     BreadcrumbComponent,
     ChartBarComponent,
-    ChartDoughnutComponent
+    ChartDoughnutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +73,8 @@ import { ChartDoughnutComponent } from './components/chart-doughnut/chart-doughn
     ProgressSpinnerModule,
     ConfirmDialogModule,
     ToastModule,
-    InputNumberModule
+    InputNumberModule,
+    DividerModule
   ],
   providers: [
     ConfirmationService,
